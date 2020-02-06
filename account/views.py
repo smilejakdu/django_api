@@ -26,7 +26,7 @@ class AccountView(View):
         Account(
             email=email,
             name=name,
-            password=password,
+            password=password
         ).save()  # 이메일과 비밀번호 저장
 
         return JsonResponse({'email': '안녕하세요'}, status=200)

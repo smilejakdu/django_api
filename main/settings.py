@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'main.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # mysql 엔진 설정
-        'NAME': 'api_study',  # 데이터베이스 이름
+        'NAME': 'django_study',  # 데이터베이스 이름
         'USER': 'root',  # 유저 이름
         'PASSWORD': '##tkakrnl12',  # 패스워드
         'HOST': 'localhost',

@@ -30,4 +30,5 @@ class CommentView(View):
 
     def get(self, request):
         comment = Comment.objects.values()
+        print('comment', comment)
         return JsonResponse({'comment': list(comment)}, status=200)

@@ -10,8 +10,5 @@ class Comment(models.Model):
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return self.name
-
     class Meta:
-        db_table = 'name'
+        db_table = 'comment'
