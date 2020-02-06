@@ -33,7 +33,8 @@ class LoginView(View):  # 로그인
     def post(self, request):
         data = json.loads(request.body)
 
-        if Account.objects.filter(email=data['email']) and Account.objects.filter(password=data['password']):
+        if Account.objects.filter(email=data['email']) and data['password'] == Account.objects.get(
+                email=data['email']).password:
             return JsonResponse({'email': "{} 님 안녕하세요.".format(data['email'])})
         else:
             return JsonResponse({"error": "email 이나 password 틀림"})
