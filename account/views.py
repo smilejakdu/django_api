@@ -5,31 +5,38 @@ from django.http import HttpResponse, JsonResponse
 from .models import Account
 
 
-class AccountView(View):
+class AccountView(View):  # 회원가입
 
-    def post(self, request):  # post 는 파일 전송
+    def post(self, request):
         data = json.loads(request.body)
         account_data = Account.objects.values()
-        # post data :  {'email': 'sory1@gmail.com', 'password': '1'}
-        email = data['email']
-        password = data['password']
-        name = data['name']
-        print('email', email)
-        print('password', password)
 
-        if email in list(account_data):
-            return JsonResponse({'email': '존재하는 이메일 입니다.'})
+        if data['email'] in list(account_data):
+            return JsonResponse({'email': '존재하는 이메일 입니다.'}, status=200)
 
-        if password is None or password == '':
-            return JsonResponse({'password': 'password 를 입력하세요.'})
+        if data['password'] is None or data['password'] == '':
+            return JsonResponse({'password': 'password 를 입력하세요.'}, status=200)
 
         Account(
-            email=email,
-            name=name,
-            password=password
-        ).save()  # 이메일과 비밀번호 저장
+            email=data['email'],
+            name=data['name'],
+            password=data['password'],
+        ).save()
 
-        return JsonResponse({'email': '안녕하세요'}, status=200)
+        return JsonResponse({'Success': '안녕하세요'}, status=200)
 
-    def get(self, request):
-        return JsonResponse({'login': 'login 하세요.'})
+    def get(self, request):  # 확인하기 위해서
+        return JsonResponse({"회원가입페이지": ''}, status=200)
+
+
+class LoginView(View):  # 로그인
+    def post(self, request):
+        data = json.loads(request.body)
+
+        if Account.objects.filter(email=data['email']) and Account.objects.filter(password=data['password']):
+            return JsonResponse({'email': "{} 님 안녕하세요.".format(data['email'])})
+        else:
+            return JsonResponse({"error": "email 이나 password 틀림"})
+
+    def get(self, request):  # 확인하기 위해서
+        return JsonResponse({'로그인페이지': ''}, status=200)

@@ -13,15 +13,11 @@ class CommentView(View):
 
     def post(self, request):
         comment_data = json.loads(request.body)
-        name = comment_data['name']
-        comment = comment_data['comment']
-        print('email', name)
-        print('comment', comment)
 
-        if comment is None or comment == '':
+        if comment_data['comment'] is None or comment_data['comment'] == '':
             return JsonResponse({'comment': '내용을 입력하세요'})
 
-        if name is not None and comment is not None or comment == '':
+        if comment_data['name'] is not None and comment_data['comment'] is not None:
             Comment(
                 name=comment_data['name'],
                 comment=comment_data['comment'],
@@ -30,5 +26,4 @@ class CommentView(View):
 
     def get(self, request):
         comment = Comment.objects.values()
-        print('comment', comment)
         return JsonResponse({'comment': list(comment)}, status=200)
