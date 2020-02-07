@@ -37,9 +37,9 @@ class LoginView(View):  # 로그인
             if data['password'] == Account.objects.get(email=data['email']).password:
                 return JsonResponse({'email': "{} 님 안녕하세요.".format(data['email'])}, status=200)
             else:
-                return JsonResponse({"error": "error"})
+                return JsonResponse({"error": "error"}, status=401)
         else:
-            return JsonResponse({"error": "error"})
+            return JsonResponse({"error": "error"}, status=401)
 
     def get(self, request):  # 확인하기 위해서
         return JsonResponse({'로그인페이지': ''}, status=200)
