@@ -67,3 +67,4 @@ class LoginView(View):
             return HttpResponse(status=400)
         except KeyError:
             return JsonResponse({"message": "INVALID_KEYS"}, status=400)
+

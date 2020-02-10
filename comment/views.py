@@ -43,8 +43,6 @@ class CommentView(View):
         comment_data = json.loads(request.body)
         # value_list 를 판별
         try:
-            name = comment_data['name']
-            comment = comment_data['comment']
 
             Comment(
                 name=comment_data['name'],

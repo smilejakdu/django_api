@@ -36,7 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account.apps.AccountConfig',
-    'comment.apps.CommentConfig'
+    'comment.apps.CommentConfig',
+    'kyobo.apps.KyoboConfig'
 ]
 
 MIDDLEWARE = [
