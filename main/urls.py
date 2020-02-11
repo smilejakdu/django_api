@@ -18,5 +18,8 @@ from django.urls import path, include
 urlpatterns = [
     path('account', include('account.urls')),
     path('comment', include('comment.urls')),
-    path('kyobo', include('kyobo.urls'))
+    path('aladin', include('aladin.urls')),
+    path('kyobo', include('kyobo.urls')),
+    path('yes', include('yes24.urls')),
+    path('yp_book', include('yp_book.urls')),
 ]

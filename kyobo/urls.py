@@ -2,5 +2,5 @@ from django.urls import path
 from .views import KyoboBestView
 
 urlpatterns = [
-    path('/best', KyoboBestView.as_view())
+    path('/kyobo_best', KyoboBestView.as_view())
 ]

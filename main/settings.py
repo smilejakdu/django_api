@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'account.apps.AccountConfig',
     'comment.apps.CommentConfig',
-    'kyobo.apps.KyoboConfig'
+    'kyobo.apps.KyoboConfig',
+    'aladin.apps.AladinConfig',
+    'yes24.apps.Yes24Config',
+    'yp_book.apps.YpBookConfig',
 ]
 
 MIDDLEWARE = [
