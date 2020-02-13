@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'aladin.apps.AladinConfig',
     'yes24.apps.Yes24Config',
     'yp_book.apps.YpBookConfig',
+    'best_search.apps.BestSearchConfig'
 ]
 
 MIDDLEWARE = [

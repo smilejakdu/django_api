@@ -22,4 +22,5 @@ urlpatterns = [
     path('kyobo', include('kyobo.urls')),
     path('yes', include('yes24.urls')),
     path('yp_book', include('yp_book.urls')),
+    path('search', include('best_search.urls'))
 ]

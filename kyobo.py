@@ -53,8 +53,7 @@ for page in range(1, max_page):
             myCursor.execute(
                 'INSERT INTO kyobos('
                 'title,'
-                'author,'
-                'price) VALUES("{}", "{}", "{}");'.format(
-                    title, author, price))
+                'price) VALUES("{}", "{}");'.format(
+                    title, price))
 conn.commit()
 conn.close()
